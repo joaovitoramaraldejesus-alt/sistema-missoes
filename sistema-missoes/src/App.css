@@ -1,0 +1,130 @@
+/* Importando a fonte estilo terminal */
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+
+body {
+  background-color: #050505 !important;
+  font-family: 'Share Tech Mono', monospace;
+  color: #ffffff;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+/* --- EFEITO DE SCANLINES (MONITOR CRT ANTIGO) --- */
+body::after {
+  content: " ";
+  display: block;
+  position: fixed;
+  top: 0; left: 0; bottom: 0; right: 0;
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.15) 50%), 
+              linear-gradient(90deg, rgba(255, 0, 0, 0.02), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.02));
+  z-index: 9999;
+  background-size: 100% 4px, 3px 100%;
+  pointer-events: none;
+}
+
+/* Logo Umbrella Pulsando */
+.img-umbrella {
+  width: 75px;
+  filter: drop-shadow(0 0 12px rgba(255, 0, 0, 0.9));
+  animation: umbrella-pulse 3s infinite ease-in-out;
+}
+
+@keyframes umbrella-pulse {
+  0%, 100% { transform: scale(1); filter: drop-shadow(0 0 5px red); }
+  50% { transform: scale(1.1); filter: drop-shadow(0 0 20px red); }
+}
+
+/* Título */
+.re-title {
+  color: #ff0000;
+  font-weight: bold;
+  letter-spacing: 5px;
+  border-bottom: 2px solid #ff0000;
+  display: inline-block;
+  padding-bottom: 5px;
+  text-shadow: 0 0 10px rgba(255, 0, 0, 0.3);
+}
+
+/* --- DASHBOARD (CARDS SUPERIORES) --- */
+.card {
+  background-color: #0c0c0c !important;
+  border-radius: 0 !important;
+  border: 1px solid #333 !important;
+}
+
+/* Cores de brilho para os cards do Dashboard */
+.border-success { box-shadow: 0 0 15px rgba(40, 167, 69, 0.2) !important; }
+.border-info { box-shadow: 0 0 15px rgba(23, 162, 184, 0.2) !important; }
+.border-danger { box-shadow: 0 0 15px rgba(220, 53, 69, 0.2) !important; }
+.border-warning { box-shadow: 0 0 15px rgba(255, 193, 7, 0.2) !important; }
+.border-secondary { box-shadow: 0 0 15px rgba(108, 117, 125, 0.1) !important; }
+
+/* --- CARDS DE MISSÃO (LISTAGEM) --- */
+.re-card {
+  background: #0a0a0a !important;
+  /* Removemos bordas laterais/superiores para focar na barra vermelha */
+  border: none !important; 
+  border-left: 6px solid #ff0000 !important; 
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s ease;
+  box-shadow: none !important;
+}
+
+.re-card.pausada { border-left-color: #ffc107 !important; }
+.re-card.concluida { border-left-color: #28a745 !important; opacity: 0.4; }
+
+.re-card:hover:not(.concluida) {
+  background: #111111 !important;
+  transform: translateX(5px);
+}
+
+/* --- NOVOS BADGES E BOTÕES (SEM BORDAS PRETAS) --- */
+
+/* Badge de Status */
+.re-badge {
+  font-size: 0.65rem;
+  padding: 2px 8px;
+  font-weight: bold;
+  font-family: 'Share Tech Mono', monospace;
+  background: transparent;
+}
+.re-badge.pendente, .re-badge.andamento { color: #ff0000; border: 1px solid #ff0000; }
+.re-badge.pausada { color: #ffc107; border: 1px solid #ffc107; }
+.re-badge.concluida { color: #28a745; border: 1px solid #28a745; }
+
+/* Botões Customizados */
+.btn-re {
+  background: transparent;
+  border: 1px solid;
+  padding: 4px 12px;
+  font-size: 0.7rem;
+  font-family: 'Share Tech Mono', monospace;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s;
+  outline: none !important;
+  box-shadow: none !important; /* Mata qualquer sombra/barra preta */
+  text-transform: uppercase;
+}
+
+.btn-re-danger { color: #ff0000; border-color: #ff0000; }
+.btn-re-danger:hover { background: #ff0000; color: #000; }
+
+.btn-re-warning { color: #ffc107; border-color: #ffc107; }
+.btn-re-warning:hover { background: #ffc107; color: #000; }
+
+.btn-re-success { color: #28a745; border-color: #28a745; }
+.btn-re-success:hover { background: #28a745; color: #000; }
+
+/* --- PLAYER DE ÁUDIO --- */
+.audio-container { opacity: 0.2; transition: 0.5s; }
+.audio-container:hover { opacity: 0.8; }
+audio { filter: invert(1); height: 25px; width: 220px; }
+
+/* Rodapé */
+footer address {
+  letter-spacing: 2px;
+}
