@@ -68,7 +68,7 @@ function App() {
       <footer className="text-center py-4 mt-5 border-top border-danger border-opacity-10">
       <address className="m-0 text-danger opacity-50 small font-monospace" style={{ fontStyle: 'normal' }}>
       DESENVOLVIDO POR: JOÃO VITOR AMARAL // DATA: 29/03/2026 <br/>
-      DISCIPLINA: DESENVOLVIMENTO DE SOFTWARE WEV // ORIENTAÇÃO: PROF. FERNANDO
+      DISCIPLINA: DESENVOLVIMENTO DE SOFTWARE WEB // ORIENTAÇÃO: PROF. FERNANDO
       </address>
       </footer>
     </div>
